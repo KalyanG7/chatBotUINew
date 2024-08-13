@@ -1,0 +1,17 @@
+<div class="chat-container">
+    <h2 class="text-center">Upload Files</h2>
+    <form (ngSubmit)="onSubmit()" #fileUploadForm="ngForm">
+      <div class="form-group">
+        <label for="path">Upload Path</label>
+        <input type="text" id="path" [(ngModel)]="uploadPath" name="path" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="files">Select Files</label>
+        <input type="file" id="files" (change)="onFileSelect($event)" multiple required class="form-control">
+      </div>
+      <button type="submit" >Upload</button>
+    </form>
+    <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+    <pre *ngIf="extractedText">{{ extractedText }}</pre>
+  </div>
+  
